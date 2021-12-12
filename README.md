@@ -1,6 +1,6 @@
 # 
 Jammming
-> This project is a responsive react application 
+> This project is a responsive react application that allows users to search the Spotify library, create a custom playlist, then save it to their Spotify account.
 > <!--Live demo [_here_]().  If you have the project hosted somewhere, include the link here. -->
 
 ## Table of Contents
@@ -17,7 +17,7 @@ Jammming
 
 
 ## General Information
-This webpage is developed to showcase knowledege of developing responsive webpages and aligning elements of a webpage using flexbox and grid. The website is a static website providing information on a travel agency called the BS Vacation. Note that the links and the buttons on this website do not work and this project is just intended to showcase knowledge by displaying the first page of a potential website 
+This webpage is developed to showcase knowledege of developing responsive webpages and using the react library to develop web applications. The website allows users to search the Spotify library, create a custom playlist, then save it to their Spotify account. 
 <!-- You don't have to answer all the questions - just the ones relevant to your project. -->
 
 
@@ -43,7 +43,7 @@ You can run this program if you setup the react app with the creat-react-app and
 
 
 ## Usage
-
+allows users to search the Spotify library, create a custom playlist, then save it to their Spotify account.
 
 
 ## Project Status
