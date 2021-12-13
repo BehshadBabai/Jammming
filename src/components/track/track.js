@@ -1,7 +1,27 @@
-<div class="Track">
-  <div class="Track-information">
-    <h3><!-- track name will go here --></h3>
-    <p><!-- track artist will go here--> | <!-- track album will go here --></p>
-  </div>
-  <button class="Track-action"><!-- + or - will go here --></button>
-</div>
+import React from 'react';
+import './track.css';
+let isRemoval = true;
+
+export class Track extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+    render() {
+        return (
+            <div className="Track">
+                <div className="Track-information">
+                    <h3>track Name</h3>
+                    <p>Artist | Album</p>
+                </div>
+                <button class="Track-action">{renderAction()}</button>
+            </div>
+        );
+    }
+}
+
+function renderAction() {
+    if (isRemoval) {
+        return '-';
+    }
+    return '+';
+}
