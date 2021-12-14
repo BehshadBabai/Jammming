@@ -9,9 +9,10 @@ export class App extends React.Component{
         super(props);
         this.state = {
             searchResults: [{ name: 'havana', artist: 'camila', album: 'idk', id: 'whatever' }, { name: 'stiches', artist: 'shawn', album: 'idk2', id: 'whatever2' }],
-            playlistName: 'Behi',
+            playlistName: 'Behi\' Playlist',
             playlistTracks: [{ name: 'warriors', artist: 'imagine', album: 'idk3', id: 'whatever3' }, { name: 'perfect', artist: 'ed', album: 'idk4', id: 'whatever4' }]
         };
+        this.addTrack = this.addTrack.bind(this);
     }
     render(){
         return (
@@ -20,11 +21,21 @@ export class App extends React.Component{
                 <div className="App">
                     <SearchBar />
                     <div className="App-playlist">
-                        <SearchResults searchResults={this.state.searchResults} />
+                        <SearchResults searchResults={this.state.searchResults} onAdd={this.addTrack} />
                         <Playlist playlistName={this.state.playlistName} playlistTracks={this.state.playlistTracks} />
                     </div>
                 </div>
             </div>
         );
+    }
+    addTrack(track) {
+        if (this.state.playlistTracks.find(savedTrack => savedTrack.id === track.id)) {
+            return;
+        }
+        else {
+            this.setState(prevState => ({
+                playlistTracks: [...prevState.playlistTracks, track]
+            }));
+        }
     }
 }
