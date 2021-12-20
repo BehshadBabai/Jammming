@@ -9,9 +9,9 @@ export class App extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
-            searchResults: [{ name: 'havana', artist: 'camila', album: 'idk', id: 'whatever' }, { name: 'stiches', artist: 'shawn', album: 'idk2', id: 'whatever2' }],
-            playlistName: 'Behi\' Playlist',
-            playlistTracks: [{ name: 'warriors', artist: 'imagine', album: 'idk3', id: 'whatever3' }, { name: 'perfect', artist: 'ed', album: 'idk4', id: 'whatever4' }]
+            searchResults: [],
+            playlistName: 'Untitled Playlist',
+            playlistTracks: []
         };
         this.addTrack = this.addTrack.bind(this);
         this.removeTrack = this.removeTrack.bind(this);
@@ -53,12 +53,16 @@ export class App extends React.Component{
     }
     savePlaylist() {
         let trackURI = [];
-        for (let i = 0; i < this.state.playlistTracks; i++) {
-            trackURI.push(this.state.playlistTracks[i].uri);
-        }
+        Spotify.savePlaylist(this.state.playlistName, trackURI).then(() => {
+            this.setState({
+                playlistName: 'New Playlist',
+                playlistTracks: []
+            });
+        });
     }
     search(term) {
         Spotify.search(term).then(searchResults => {
+            console.log('s');
             this.setState({ searchResults: searchResults });
         });
     }
