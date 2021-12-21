@@ -62,8 +62,7 @@ export class App extends React.Component{
     }
     search(term) {
         Spotify.search(term).then(searchResults => {
-            console.log('s');
-            this.setState({ searchResults: searchResults });
+            alert(searchResults);//this.setState({ searchResults: searchResults });
         });
     }
 }

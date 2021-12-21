@@ -1,5 +1,5 @@
 ﻿let accessToken;
-const clientId = '';
+const clientId = '1e00be01f9354bb5832a85c3ef7a6b38';
 const redirectUri = 'http://localhost:3000';
 const Spotify = {
     getAccessToken() {
@@ -33,7 +33,7 @@ const Spotify = {
         }).then(response => {
             return response.json();
         }).then(jsonResponse => {
-                if (!jsonResponse) {
+            if (!jsonResponse) {
                     return [];
                 }
                 return jsonResponse.tracks.items.map(track => ({
