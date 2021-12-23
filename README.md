@@ -6,7 +6,6 @@ Jammming
 ## Table of Contents
 * [General Info](#general-information)
 * [Technologies Used](#technologies-used)
-* [Screenshots](#screenshots)
 * [Setup](#setup)
 * [Usage](#usage)
 * [Project Status](#project-status)
@@ -28,14 +27,6 @@ This webpage is developed to showcase knowledge of developing responsive webpage
 -  CSS
 -  git - version 2.32.0.windows.2
 -  github
-
-
-## Screenshots
-![Example screenshot](./resources/img/Screenshot1.png)
-![Example screenshot](./resources/img/Screenshot2.png)
-![Example screenshot](./resources/img/Screenshot3.png)
-![Example screenshot](./resources/img/Screenshot4.png)
-<!-- If you have screenshots you'd like to share, include them here. -->
 
 
 ## Setup
