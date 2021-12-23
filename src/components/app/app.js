@@ -1,11 +1,11 @@
 import React from 'react';
-import {SearchBar} from '../searchBar/searchBar.js';
-import {SearchResults} from '../searchResults/searchResults.js';
-import {Playlist} from '../playlist/playlist.js';
+import SearchBar from '../searchBar/searchBar';
+import SearchResults from '../searchResults/searchResults';
+import Playlist from '../playlist/playlist';
 import './app.css';
 import Spotify from '../../util/Spotify';
 
-export class App extends React.Component{
+class App extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
@@ -27,7 +27,7 @@ export class App extends React.Component{
                     <SearchBar onSearch={this.search} />
                     <div className="App-playlist">
                         <SearchResults searchResults={this.state.searchResults} onAdd={this.addTrack} />
-                        <Playlist playlistName={this.state.playlistName} playlistTracks={this.state.playlistTracks} onRemove={this.removeTrack} onNameChange={this.updatePlaylistName} />
+                        <Playlist playlistName={this.state.playlistName} playlistTracks={this.state.playlistTracks} onRemove={this.removeTrack} onNameChange={this.updatePlaylistName} onSave={this.savePlaylist} />
                     </div>
                 </div>
             </div>
@@ -52,17 +52,22 @@ export class App extends React.Component{
         this.setState({ playlistName: name });
     }
     savePlaylist() {
-        let trackURI = [];
-        Spotify.savePlaylist(this.state.playlistName, trackURI).then(() => {
+        const trackURI = [];
+        for (let i = 0; i < this.state.playlistTracks.length; i++) {
+            trackURI.push('spotify:track:'+this.state.playlistTracks[i].id);
+        }
+        if (Spotify.savePlaylist(this.state.playlistName, trackURI)) {
             this.setState({
-                playlistName: 'New Playlist',
+                playlistName: 'Untitled Playlist',
                 playlistTracks: []
             });
-        });
+        }
     }
     search(term) {
-        Spotify.search(term).then(searchResults => {
-            alert(searchResults);//this.setState({ searchResults: searchResults });
+        Spotify.search(term).then(spotifyResults => {
+            this.setState({ searchResults: spotifyResults });
         });
     }
 }
+
+export default App;

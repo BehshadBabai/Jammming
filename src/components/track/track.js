@@ -1,7 +1,7 @@
 import React from 'react';
 import './track.css';
 
-export class Track extends React.Component {
+class Track extends React.Component {
     constructor(props) {
         super(props);
         this.addTrack = this.addTrack.bind(this);
@@ -37,3 +37,5 @@ export class Track extends React.Component {
         this.props.onRemove(this.props.track);
     }
 }
+
+export default Track;

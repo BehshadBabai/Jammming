@@ -1,7 +1,7 @@
 import React from 'react';
 import './searchBar.css';
 
-export class SearchBar extends React.Component {
+class SearchBar extends React.Component {
     constructor(props) {
         super(props);
         this.state = { term: '' };
@@ -23,3 +23,5 @@ export class SearchBar extends React.Component {
         this.setState({term: e.target.value});
     }
 }
+
+export default SearchBar;
