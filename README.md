@@ -17,7 +17,7 @@ Jammming
 
 
 ## General Information
-This webpage is developed to showcase knowledege of developing responsive webpages and using the react library to develop web applications. The website allows users to search the Spotify library, create a custom playlist, then save it to their Spotify account. 
+This webpage is developed to showcase knowledge of developing responsive webpages and using the react library to develop web applications. The website allows users to search the Spotify library, create a custom playlist, then save it to their Spotify account. 
 <!-- You don't have to answer all the questions - just the ones relevant to your project. -->
 
 
@@ -47,16 +47,16 @@ allows users to search the Spotify library, create a custom playlist, then save 
 
 
 ## Project Status
-Project is: In Progress
+Project is: Complete
 
 
 ## Room for Improvement
-- 
+- Adding a loading screen while playlist is saving and displaying a message when the playlist is saved to show that the process was successful.
 
 
 
 ## Acknowledgements
-- Many thanks to codecademy for including idea for this project on their full-stack development path 
+- Many thanks to Codecademy for including idea for this project on their full-stack development path 
 
 
 ## Contact
