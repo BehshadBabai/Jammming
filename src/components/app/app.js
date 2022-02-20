@@ -91,6 +91,8 @@ class App extends React.Component {
         playlistName: 'Untitled Playlist',
         playlistTracks: [],
       });
+    } else {
+      alert('Something Went Wrong');
     }
   }
   search(term) {
