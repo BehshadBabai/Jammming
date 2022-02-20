@@ -11,22 +11,20 @@ class SearchBar extends React.Component {
   render() {
     return (
       <div className='SearchBar'>
-        <input
-          placeholder='Enter A Song, Album, or Artist'
-          onChange={this.handleTermChange}
-        />
-        <button
-          className='SearchButton'
-          onClick={this.search}
-          onSubmit={this.search}
-          type='submit'
-        >
+        <form onSubmit={this.search}>
+          <input
+            placeholder='Enter A Song, Album, or Artist'
+            onChange={this.handleTermChange}
+          />
+        </form>
+        <button className='SearchButton' onClick={this.search} type='submit'>
           SEARCH
         </button>
       </div>
     );
   }
   search(e) {
+    e.preventDefault();
     this.props.onSearch(this.state.term);
   }
   handleTermChange(e) {
