@@ -13,13 +13,15 @@ class App extends React.Component {
       searchResults: [],
       playlistName: 'Untitled Playlist',
       playlistTracks: [],
-      showConnected: false,
+      connected: false,
+      alertShown: false,
     };
     this.addTrack = this.addTrack.bind(this);
     this.removeTrack = this.removeTrack.bind(this);
     this.updatePlaylistName = this.updatePlaylistName.bind(this);
     this.savePlaylist = this.savePlaylist.bind(this);
     this.search = this.search.bind(this);
+    this.connect = this.connect.bind(this);
   }
   render() {
     return (
@@ -28,10 +30,10 @@ class App extends React.Component {
           Ja<span className='highlight'>mmm</span>ing
         </h1>
         <div className='App'>
-          {this.state.showConnected && (
+          {this.state.connected && (
             <Alert
               onClose={() => {
-                this.setState({ showConnected: false });
+                this.setState({ connected: false });
               }}
               variant='filled'
               color='success'
@@ -39,7 +41,52 @@ class App extends React.Component {
               Successfully Connected To Your Spotify Account.
             </Alert>
           )}
-          <SearchBar onSearch={this.search} />
+          {!this.state.connected && !this.state.alertShown && (
+            <>
+              <div id='preconnect-info'>
+                <br />
+                <p>
+                  Welcome to Jammming by{' '}
+                  <a
+                    href='https://linkedin.com/in/behshadbabai'
+                    target='_blank'
+                    rel='noreferrer'
+                  >
+                    Behshad Babai
+                  </a>
+                  . Here, you can search for songs in Spotify's library, create
+                  and name a playlist and then save your playlist to your
+                  Spotify account. Note that even if you successfully connect to
+                  your spotify account through this app, you still need my
+                  approval to be able to use this app. If you want to start
+                  using Jammming, please let me know via{' '}
+                  <a
+                    href='mailto:behshad.babai@gmail.com'
+                    target='_blank'
+                    rel='noreferrer'
+                  >
+                    Email
+                  </a>{' '}
+                  or
+                  <a
+                    href='https://linkedin.com/in/behshadbabai'
+                    target='_blank'
+                    rel='noreferrer'
+                  >
+                    LinkedIn
+                  </a>{' '}
+                  so that I can add you as a user.
+                </p>
+                <button id='s-connect' onClick={this.connect}>
+                  Connect to Spotify <i className='fa-brands fa-spotify'></i>
+                </button>
+              </div>
+              <br />
+            </>
+          )}
+          {(this.state.connected || this.state.alertShown) && (
+            <SearchBar onSearch={this.search} />
+          )}
           <div className='App-playlist'>
             <SearchResults
               searchResults={this.state.searchResults}
@@ -56,6 +103,9 @@ class App extends React.Component {
         </div>
       </div>
     );
+  }
+  connect(e) {
+    const accessToken = Spotify.getAccessToken();
   }
   addTrack(track) {
     if (
@@ -105,9 +155,10 @@ class App extends React.Component {
       window.location.href.match(/access_token=([^&]*)/) &&
       window.location.href.match(/expires_in=([^&]*)/)
     ) {
-      this.setState({ showConnected: true });
+      this.setState({ connected: true });
+      this.setState({ alertShown: true });
     } else {
-      this.setState({ showConnected: false });
+      this.setState({ connected: false });
     }
   }
 }

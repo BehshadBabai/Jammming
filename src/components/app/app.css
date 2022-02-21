@@ -54,3 +54,41 @@ h2 {
 Alert {
   background-color: green;
 }
+
+#s-connect {
+  cursor: pointer;
+  width: 10rem;
+  padding: 0.77rem 0;
+  border-radius: 54px;
+  border-width: 0px;
+  margin-top: 1.27rem;
+  background-color: white;
+  color: green !important;
+  text-align: center;
+  font-size: 0.83rem;
+  transition: background-color 0.25s;
+  color: #fff;
+  font-weight: bold;
+}
+
+#s-connect:hover {
+  background-color: green;
+  color: white !important;
+}
+
+#preconnect-info p a {
+  color: white;
+}
+
+#preconnect-info p {
+  font-size: 1.15em;
+  line-height: 1.5em;
+  background-color: #010c3f;
+  padding: 1em;
+}
+
+#preconnect-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
