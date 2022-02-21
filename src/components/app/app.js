@@ -105,7 +105,7 @@ class App extends React.Component {
     );
   }
   connect(e) {
-    const accessToken = Spotify.getAccessToken();
+    Spotify.getAccessToken();
   }
   addTrack(track) {
     if (
