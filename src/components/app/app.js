@@ -67,7 +67,7 @@ class App extends React.Component {
                   >
                     Email
                   </a>{' '}
-                  or
+                  or{' '}
                   <a
                     href='https://linkedin.com/in/behshadbabai'
                     target='_blank'
